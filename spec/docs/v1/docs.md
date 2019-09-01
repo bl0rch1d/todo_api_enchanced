@@ -28,64 +28,15 @@
 
             {
               "data": [
-                {
-                  "id": "2",
-                  "type": "comment",
-                  "attributes": {
-                    "body": "[\"officiis\", \"et\", \"non\", \"laborum\", \"sed\"]",
-                    "image": {
-                      "name": "image",
-                      "record": {
-                        "id": 2,
-                        "body": "[\"officiis\", \"et\", \"non\", \"laborum\", \"sed\"]",
-                        "task_id": 1,
-                        "created_at": "2019-08-28T11:36:08.414Z",
-                        "updated_at": "2019-08-28T11:36:08.418Z"
-                      }
-                    }
-                  },
-                  "relationships": {
-                    "task": {
-                      "data": {
-                        "id": "1",
-                        "type": "task"
-                      }
-                    }
-                  }
-                },
-                {
-                  "id": "1",
-                  "type": "comment",
-                  "attributes": {
-                    "body": "[\"nesciunt\", \"non\", \"soluta\", \"voluptatem\", \"nobis\"]",
-                    "image": {
-                      "name": "image",
-                      "record": {
-                        "id": 1,
-                        "body": "[\"nesciunt\", \"non\", \"soluta\", \"voluptatem\", \"nobis\"]",
-                        "task_id": 1,
-                        "created_at": "2019-08-28T11:36:08.405Z",
-                        "updated_at": "2019-08-28T11:36:08.417Z"
-                      }
-                    }
-                  },
-                  "relationships": {
-                    "task": {
-                      "data": {
-                        "id": "1",
-                        "type": "task"
-                      }
-                    }
-                  }
-                }
+            
               ]
             }
 
 ### Create a comment [POST /api/v1/tasks/{task_id}/comments]
 
 + Parameters
-    + task_id: `85` (integer, required)
-    + body: `quiamollitiaestrepellatdolorum` (string, required)
+    + task_id: `12` (integer, required)
+    + body: `sequiconsequaturillumsolutaminima` (string, required)
     + image: `ActionDispatch%3A%3AHttp%3A%3AUploadedFile` (image, optional)
 
 + Request success
@@ -98,7 +49,7 @@
 
     + Body
 
-            comment[body]=noninciduntducimusututanimivoluptassaepevoluptatesdicta
+            comment[body]=repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel
 
 + Response 201
 
@@ -113,16 +64,17 @@
                 "id": "5",
                 "type": "comment",
                 "attributes": {
-                  "body": "noninciduntducimusututanimivoluptassaepevoluptatesdicta",
+                  "body": "repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel",
                   "image": {
                     "name": "image",
                     "record": {
                       "id": 5,
-                      "body": "noninciduntducimusututanimivoluptassaepevoluptatesdicta",
+                      "body": "repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel",
                       "task_id": 4,
-                      "created_at": "2019-08-28T11:36:08.473Z",
-                      "updated_at": "2019-08-28T11:36:08.473Z"
-                    }
+                      "created_at": "2019-09-01T19:38:17.427Z",
+                      "updated_at": "2019-09-01T19:38:17.427Z"
+                    },
+                    "dependent": "purge_later"
                   }
                 },
                 "relationships": {
@@ -167,7 +119,7 @@
 ### Destroy the comment [DELETE /api/v1/comments/{id}]
 
 + Parameters
-    + id: `85` (integer, required)
+    + id: `12` (integer, required)
 
 + Request success
 **DELETE**&nbsp;&nbsp;`/api/v1/comments/8`
@@ -229,7 +181,7 @@
                   "id": "1",
                   "type": "project",
                   "attributes": {
-                    "name": "ipsam"
+                    "name": "in"
                   },
                   "relationships": {
                     "user": {
@@ -273,7 +225,7 @@
                 "id": "2",
                 "type": "project",
                 "attributes": {
-                  "name": "non"
+                  "name": "dolore"
                 },
                 "relationships": {
                   "user": {
@@ -313,7 +265,7 @@
 ### Create a project [POST /api/v1/projects]
 
 + Parameters
-    + name: `ducimusquis` (string, required)
+    + name: `delenitinobis` (string, required)
 
 + Request created
 **POST**&nbsp;&nbsp;`/api/v1/projects`
@@ -325,7 +277,7 @@
 
     + Body
 
-            project[name]=mollitiadicta
+            project[name]=blanditiissunt
 
 + Response 201
 
@@ -340,7 +292,7 @@
                 "id": "5",
                 "type": "project",
                 "attributes": {
-                  "name": "mollitiadicta"
+                  "name": "blanditiissunt"
                 },
                 "relationships": {
                   "user": {
@@ -389,8 +341,8 @@
 ### Update the project [PUT /api/v1/projects/{id}]
 
 + Parameters
-    + id: `60` (integer, required)
-    + name: `exvoluptatem` (string, required)
+    + id: `71` (integer, required)
+    + name: `enimcommodi` (string, required)
 
 + Request success
 **PUT**&nbsp;&nbsp;`/api/v1/projects/7`
@@ -402,7 +354,7 @@
 
     + Body
 
-            project[name]=quinumquam
+            project[name]=consequaturet
 
 + Response 200
 
@@ -417,7 +369,7 @@
                 "id": "7",
                 "type": "project",
                 "attributes": {
-                  "name": "quinumquam"
+                  "name": "consequaturet"
                 },
                 "relationships": {
                   "user": {
@@ -515,13 +467,7 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "error": "Access Denied!"
-            }
+            Content-Type: text/html
 
 # Group Registrations
 
@@ -546,7 +492,7 @@
 
     + Body
 
-            user[username]=namest&user[password]=UqlaDOPhfcl&user[password_confirmation]=UqlaDOPhfcl
+            user[username]=eaducimus&user[password]=VHZMJgUm7f&user[password_confirmation]=VHZMJgUm7f
 
 + Response 201
 
@@ -557,7 +503,7 @@
     + Body
 
             {
-              "csrf": "ynaxGiLrbU/iGQkynKWaowaq8BIWylrQ0WuPrlnCrMsNKSY9GhMeOmCitN5Pi9WOX9bQEV2hm0FisHtFt2gQHQ=="
+              "csrf": "mYa8P4YUa4ddKWdIvHQq0zVEqgbEwV6Y4WyiSfVAc55YVgaVKxphcvRkaDfVGq0BuE0ITQ0MdvVtd9bzhqc5mA=="
             }
 
 + Request unprocessable
@@ -582,13 +528,13 @@
 
             {
               "errors": {
-                "password": [
-                  "can't be blank",
-                  "is too short (minimum is 8 characters)"
-                ],
                 "username": [
                   "can't be blank",
                   "is too short (minimum is 3 characters)"
+                ],
+                "password": [
+                  "can't be blank",
+                  "is too short (minimum is 8 characters)"
                 ]
               }
             }
@@ -619,7 +565,7 @@
     + Body
 
             {
-              "csrf": "gEopdj5l0HuQDsPH4wCQv4+AgXiAL10oH40y+ftdEipoMbRA3kkmgB4936ujcKgbFqvgp3kI7x5RiRAvQF25bA=="
+              "csrf": "PLZXVw8exy9ehTUqSVmpztL5/DiD1V70F/v2yYv2GW0p4JIZND30N4ymOn10phwR6vhvziLrUeIeyGmV2ZA/kQ=="
             }
 
 + Request unauthorized
@@ -639,7 +585,7 @@
     + Body
 
             {
-              "errors": "Unathorized"
+              "errors": "translation missing: en.jwt.unauthorized"
             }
 
 ### Create session [POST /api/v1/auth/sessions]
@@ -658,7 +604,7 @@
 
     + Body
 
-            username=delectussaepe&password=UqlaDOPhfcl
+            username=iustodolores&password=VHZMJgUm7f
 
 + Response 200
 
@@ -669,7 +615,7 @@
     + Body
 
             {
-              "csrf": "hFaBe4EeK6scNRjDknYQXcWADi20Nb2MitVHMb7hBxkC8nhvfAR1CukA/yjfhBaxb2GneIfALvFCtMbvWHW23g=="
+              "csrf": "++ayLdxjVZnen9G5eZCXwZXAgyRDL6Iyg2IZdFX4dqcftt9eIwFVYSNMPpTra+jnAedloopPZ5bh+ZWW27EAIg=="
             }
 
 + Request not_found
@@ -682,7 +628,7 @@
 
     + Body
 
-            username=uipnqaasutqereummsi&password=UqlaDOPhfcl
+            username=iodantnc&password=VHZMJgUm7f
 
 + Response 404
 
@@ -706,7 +652,7 @@
 
     + Body
 
-            username=autemnecessitatibus&password=
+            username=voluptatibusillo&password=
 
 + Response 401
 
@@ -717,13 +663,13 @@
     + Body
 
             {
-              "errors": "Unathorized"
+              "errors": "translation missing: en.jwt.unauthorized"
             }
 
 ### Destroy session [DELETE /api/v1/auth/sessions]
 
 
-+ Request success
++ Request no_content
 **DELETE**&nbsp;&nbsp;`/api/v1/auth/sessions`
 
     + Headers
@@ -731,15 +677,7 @@
             Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
             Content-Type: application/x-www-form-urlencoded
 
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            "ok"
++ Response 204
 
 + Request unathorized
 **DELETE**&nbsp;&nbsp;`/api/v1/auth/sessions`
@@ -758,7 +696,7 @@
     + Body
 
             {
-              "errors": "Unathorized"
+              "errors": "translation missing: en.jwt.unauthorized"
             }
 
 # Group Tasks
@@ -837,8 +775,8 @@
 ### Update postition of a task [PATCH /api/v1/tasks/{task_id}/prioritizations]
 
 + Parameters
-    + task_id: `50` (integer, required)
-    + position: `4` (integer, required)
+    + task_id: `17` (integer, required)
+    + position: `3` (integer, required)
 
 + Request success
 **PATCH**&nbsp;&nbsp;`/api/v1/tasks/1/prioritizations`
@@ -850,7 +788,7 @@
 
     + Body
 
-            task[position]=4
+            task[position]=5
 
 + Response 200
 
@@ -865,9 +803,9 @@
                 "id": "1",
                 "type": "task",
                 "attributes": {
-                  "name": "veritatis",
+                  "name": "sed",
                   "deadline": null,
-                  "position": 4,
+                  "position": 5,
                   "completed": false
                 },
                 "relationships": {
@@ -896,7 +834,7 @@
 
     + Body
 
-            task[position]=4
+            task[position]=5
 
 + Response 404
 
@@ -932,29 +870,7 @@
 
             {
               "data": [
-                {
-                  "id": "1",
-                  "type": "task",
-                  "attributes": {
-                    "name": "ducimus",
-                    "deadline": null,
-                    "position": 2,
-                    "completed": false
-                  },
-                  "relationships": {
-                    "project": {
-                      "data": {
-                        "id": "2",
-                        "type": "project"
-                      }
-                    },
-                    "comments": {
-                      "data": [
             
-                      ]
-                    }
-                  }
-                }
               ]
             }
 
@@ -983,9 +899,9 @@
                 "id": "2",
                 "type": "task",
                 "attributes": {
-                  "name": "nostrum",
+                  "name": "voluptatem",
                   "deadline": null,
-                  "position": 2,
+                  "position": 1,
                   "completed": false
                 },
                 "relationships": {
@@ -1026,8 +942,8 @@
 ### Create a task [POST /api/v1/projects/{project_id}/tasks]
 
 + Parameters
-    + project_id: `50` (integer, required)
-    + name: `fugiatconsequuntur` (string, required)
+    + project_id: `17` (integer, required)
+    + name: `temporaveniam` (string, required)
 
 + Request success
 **POST**&nbsp;&nbsp;`/api/v1/projects/8/tasks`
@@ -1039,7 +955,7 @@
 
     + Body
 
-            task[name]=nullavel
+            task[name]=voluptatemexcepturi
 
 + Response 201
 
@@ -1054,7 +970,7 @@
                 "id": "5",
                 "type": "task",
                 "attributes": {
-                  "name": "nullavel",
+                  "name": "voluptatemexcepturi",
                   "deadline": null,
                   "position": 2,
                   "completed": false
@@ -1106,9 +1022,9 @@
 ### Update the task [PUT /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `50` (integer, required)
-    + name: `suntet` (string, required)
-    + deadline: `2019-09-04+11%3A36%3A07+UTC` (datetime, optional)
+    + id: `17` (integer, required)
+    + name: `ideveniet` (string, required)
+    + deadline: `2019-09-08+19%3A38%3A16+UTC` (datetime, optional)
 
 + Request success
 **PUT**&nbsp;&nbsp;`/api/v1/tasks/7`
@@ -1120,7 +1036,7 @@
 
     + Body
 
-            task[name]=consecteturvel&task[deadline]=2019-09-04
+            task[name]=modiprovident
 
 + Response 200
 
@@ -1135,9 +1051,9 @@
                 "id": "7",
                 "type": "task",
                 "attributes": {
-                  "name": "consecteturvel",
-                  "deadline": "2019-09-04",
-                  "position": 2,
+                  "name": "modiprovident",
+                  "deadline": null,
+                  "position": 1,
                   "completed": false
                 },
                 "relationships": {
@@ -1156,7 +1072,7 @@
               }
             }
 
-+ Request unprocessable
++ Request success
 **PUT**&nbsp;&nbsp;`/api/v1/tasks/8`
 
     + Headers
@@ -1166,7 +1082,53 @@
 
     + Body
 
-            task[name]&task[deadline]=2019-08-21
+            task[deadline]=2019-09-08
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "8",
+                "type": "task",
+                "attributes": {
+                  "name": "voluptates",
+                  "deadline": null,
+                  "position": 1,
+                  "completed": false
+                },
+                "relationships": {
+                  "project": {
+                    "data": {
+                      "id": "14",
+                      "type": "project"
+                    }
+                  },
+                  "comments": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
+            }
+
++ Request unprocessable
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/9`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            task[name]
 
 + Response 422
 
@@ -1180,9 +1142,6 @@
               "errors": {
                 "name": [
                   "can't be blank"
-                ],
-                "deadline": [
-                  "Can't be in the past"
                 ]
               }
             }
@@ -1197,7 +1156,7 @@
 
     + Body
 
-            task[name]=impeditqui&task[deadline]=2019-09-04
+            task[name]=autdolorem&task[deadline]=2019-09-08
 
 + Response 404
 
@@ -1214,10 +1173,10 @@
 ### Destroy task [DELETE /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `10` (number, required)
+    + id: `11` (number, required)
 
 + Request when success
-**DELETE**&nbsp;&nbsp;`/api/v1/tasks/10`
+**DELETE**&nbsp;&nbsp;`/api/v1/tasks/11`
 
     + Headers
 
