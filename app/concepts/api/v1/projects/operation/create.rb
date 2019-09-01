@@ -2,7 +2,6 @@ module Api::V1
   module Projects::Operation
     class Create < Trailblazer::Operation
       step :model
-      step Policy::Guard(Lib::Policy::UserGuard.new), fail_fast: true
       step Contract::Build(constant: Projects::Contract::Create)
       step Contract::Validate(key: :project), fail_fast: true
       step Contract::Persist()
