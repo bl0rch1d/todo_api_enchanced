@@ -25,9 +25,6 @@ gem 'ffaker', '~> 2.11'
 # Serializers
 gem 'fast_jsonapi', '~> 1.5'
 
-# Authorization
-gem 'pundit', '~> 2.1'
-
 # List managment
 gem 'acts_as_list', '~> 0.9.19'
 
@@ -36,6 +33,8 @@ gem 'aws-sdk-s3', '~> 1.46'
 
 # Trailblazer bundle
 gem 'dry-matcher', '~> 0.8.1'
+gem 'reform', '~> 2.2'
+gem 'reform-rails', '~> 0.1.7'
 gem 'trailblazer-rails', '~> 2.1'
 
 group :test do

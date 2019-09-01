@@ -3,22 +3,14 @@ class Api::V1::Auth::SessionsController < Api::V1::ApiController
   before_action :authorize_access_request!, only: :destroy
 
   def create
-    user = AuthenticationService.new(params).call
-
-    @tokens = TokenSessionService.new(user: user).login
-
-    setup_cookie_and_render
+    endpoint Api::V1::Sessions::Operation::Create
   end
 
   def update
-    @tokens = TokenSessionService.new(payload: claimless_payload).refresh!
-
-    setup_cookie_and_render
+    endpoint Api::V1::Sessions::Operation::Update, payload: claimless_payload
   end
 
   def destroy
-    @tokens = TokenSessionService.new(payload: payload).destroy
-
-    render json: :ok
+    endpoint Api::V1::Sessions::Operation::Destroy, payload: payload
   end
 end

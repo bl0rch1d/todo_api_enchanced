@@ -1,38 +1,47 @@
 class ApplicationEndpoint
   Matcher = Dry::Matcher.new(
-    success: Dry::Matcher::Case.new(
-      match: ->(result) { result.success? },
-      resolve: ->(result) { result }
-    ),
-
     created: Dry::Matcher::Case.new(
-      match: ->(result) { result.success? && result['model.action'] == :new },
-      resolve: ->(result) { result }
-    ),
-
-    unprocessable: Dry::Matcher::Case.new(
-      match: ->(result) { result.failiure? && result['contract.default']&.errors },
+      match: ->(result) { result.success? && result['params']['action'] == 'create' },
       resolve: ->(result) { result }
     ),
 
     destroyed: Dry::Matcher::Case.new(
-      match: ->(result) { result.success? && result['model'].try(:destroyed?) },
+      match: ->(result) { result.success? && (result['model'].try(:destroyed?) || result['tokens'] == 1) },
+      resolve: ->(result) { result }
+    ),
+
+    forbidden: Dry::Matcher::Case.new(
+      match: ->(result) { result.failure? && result['result.policy.default']&.failure? },
+      resolve: ->(result) { result }
+    ),
+
+    unprocessable: Dry::Matcher::Case.new(
+      match: ->(result) { result.failure? && result['contract.default']&.errors },
       resolve: ->(result) { result }
     ),
 
     no_content: Dry::Matcher::Case.new(
-      match: ->(result) { result.success? && ressult['renderer_options'].nil? },
+      match: ->(result) { result.success? && result['renderer_options'].nil? && result['tokens'].nil? },
+      resolve: ->(result) { result }
+    ),
+
+    success: Dry::Matcher::Case.new(
+      match: ->(result) { result.success? },
       resolve: ->(result) { result }
     )
   )
 
-  def self.call(operation_class, handlers, *args)
+  def self.call(operation_class, handlers, *args, &block)
     result = operation_class.call(*args)
-
-    matcher.call(result, handlers)
+    new.call(result, handlers, &block)
   end
 
-  private
+  # rubocop:disable Style/AndOr
+  def call(result, handlers, &block)
+    matcher.call(result, &block) and return if block_given?
+    matcher.call(result, &handlers)
+  end
+  # rubocop:enable Style/AndOr
 
   def matcher
     ApplicationEndpoint::Matcher

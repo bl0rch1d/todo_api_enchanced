@@ -139,7 +139,5 @@ RSpec.describe 'Projects API', type: :request do
     it 'forbidden', :dox do
       expect(response).to have_http_status(403)
     end
-
-    it { expect(response).to match_json_schema('forbidden') }
   end
 end

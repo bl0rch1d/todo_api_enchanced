@@ -99,23 +99,35 @@ RSpec.describe 'Tasks API', type: :request do
     let(:task_id) { valid_task_id }
 
     context 'with valid params' do
-      let(:params) { { task: { name: valid_task_name, deadline: valid_deadline } } }
+      context 'when name' do
+        let(:params) { { task: { name: valid_task_name } } }
 
-      it 'success', :dox do
-        expect(response).to have_http_status(200)
+        it 'success', :dox do
+          expect(response).to have_http_status(200)
+        end
+
+        it { expect(response).to match_json_schema('tasks/name_update') }
       end
 
-      it { expect(response).to match_json_schema('tasks/update') }
+      context 'when deadline' do
+        let(:params) { { task: { deadline: valid_deadline } } }
+
+        it 'success', :dox do
+          expect(response).to have_http_status(200)
+        end
+
+        it { expect(response).to match_json_schema('tasks/deadline_update') }
+      end
     end
 
     context 'with invalid params' do
-      let(:params) { { task: { name: invalid_task_name, deadline: invalid_deadline } } }
+      let(:params) { { task: { name: invalid_task_name } } }
 
       it 'unprocessable', :dox do
         expect(response).to have_http_status(422)
       end
 
-      it { expect(response).to match_json_schema('tasks/update_error') }
+      it { expect(response).to match_json_schema('tasks/invalid_name') }
     end
 
     context 'when invalid task_id' do
