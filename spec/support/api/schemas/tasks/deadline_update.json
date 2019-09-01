@@ -56,18 +56,19 @@
               "title": "The Name Schema",
               "default": "",
               "examples": [
-                "cumque"
+                "molestiae"
               ],
               "pattern": "^(.*)$"
             },
             "deadline": {
               "$id": "#/properties/data/properties/attributes/properties/deadline",
-              "type": "null",
+              "type": "string",
               "title": "The Deadline Schema",
-              "default": null,
+              "default": "",
               "examples": [
-                null
-              ]
+                "2019-09-08"
+              ],
+              "pattern": "^(.*)$"
             },
             "position": {
               "$id": "#/properties/data/properties/attributes/properties/position",

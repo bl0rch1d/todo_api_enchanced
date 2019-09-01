@@ -6,7 +6,7 @@ class ApplicationEndpoint
     ),
 
     destroyed: Dry::Matcher::Case.new(
-      match: ->(result) { result.success? && (result['model'].try(:destroyed?) || result['tokens'] == 1) },
+      match: ->(result) { result.success? && result['model'].try(:destroyed?) },
       resolve: ->(result) { result }
     ),
 

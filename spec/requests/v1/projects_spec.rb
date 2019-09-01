@@ -130,4 +130,14 @@ RSpec.describe 'Projects API', type: :request do
       it { expect(response).to match_json_schema('not_found') }
     end
   end
+
+  describe 'Forbidden' do
+    before { delete api_v1_project_path(project), headers: bearer }
+
+    let(:project) { create(:project).id }
+
+    it 'success', :dox do
+      expect(response).to have_http_status(403)
+    end
+  end
 end

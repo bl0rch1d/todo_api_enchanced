@@ -4,7 +4,7 @@ module Api::V1
       step :destroy
 
       def destroy(ctx, **)
-        ctx['tokens'] = Lib::Service::JwtSessionsService::Flush.call(ctx['payload'])
+        Lib::Service::JwtSessionsService::Flush.call(ctx['payload'])
       end
     end
   end

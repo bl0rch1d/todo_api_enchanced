@@ -3,7 +3,7 @@ module Api::V1
     class Update < Trailblazer::Operation
       step Model(Task, :find)
       step Policy::Guard(Lib::Policy::UserGuard.new), fail_fast: true
-      step Contract::Build(constant: Tasks::Contract::Create)
+      step Contract::Build(constant: Tasks::Contract::Update)
       step Contract::Validate(key: :task), fail_fast: true
       step Contract::Persist()
       step :prepare_renderer
