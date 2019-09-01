@@ -1,0 +1,38 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "$id": "#/properties/errors",
+      "type": "object",
+      "title": "The Errors Schema",
+      "required": [
+        "image"
+      ],
+      "properties": {
+        "image": {
+          "$id": "#/properties/errors/properties/image",
+          "type": "array",
+          "title": "The Image Schema",
+          "items": {
+            "$id": "#/properties/errors/properties/image/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "default": "",
+            "examples": [
+              "type is not allowed",
+              "size is too big (max file size: 10mb)"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}

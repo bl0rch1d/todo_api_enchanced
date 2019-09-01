@@ -1,0 +1,163 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "title": "The Data Schema",
+      "required": [
+        "id",
+        "type",
+        "attributes",
+        "relationships"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/data/properties/id",
+          "type": "string",
+          "title": "The Id Schema",
+          "default": "",
+          "examples": [
+            "79"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "type": {
+          "$id": "#/properties/data/properties/type",
+          "type": "string",
+          "title": "The Type Schema",
+          "default": "",
+          "examples": [
+            "task"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "attributes": {
+          "$id": "#/properties/data/properties/attributes",
+          "type": "object",
+          "title": "The Attributes Schema",
+          "required": [
+            "name",
+            "deadline",
+            "position",
+            "completed"
+          ],
+          "properties": {
+            "name": {
+              "$id": "#/properties/data/properties/attributes/properties/name",
+              "type": "string",
+              "title": "The Name Schema",
+              "default": "",
+              "examples": [
+                "blanditiis"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "deadline": {
+              "$id": "#/properties/data/properties/attributes/properties/deadline",
+              "type": "string",
+              "title": "The Deadline Schema",
+              "default": "",
+              "examples": [
+                "2019-09-03"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "position": {
+              "$id": "#/properties/data/properties/attributes/properties/position",
+              "type": "integer",
+              "title": "The Position Schema",
+              "default": 0,
+              "examples": [
+                5
+              ]
+            },
+            "completed": {
+              "$id": "#/properties/data/properties/attributes/properties/completed",
+              "type": "boolean",
+              "title": "The Completed Schema",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          }
+        },
+        "relationships": {
+          "$id": "#/properties/data/properties/relationships",
+          "type": "object",
+          "title": "The Relationships Schema",
+          "required": [
+            "project",
+            "comments"
+          ],
+          "properties": {
+            "project": {
+              "$id": "#/properties/data/properties/relationships/properties/project",
+              "type": "object",
+              "title": "The Project Schema",
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "$id": "#/properties/data/properties/relationships/properties/project/properties/data",
+                  "type": "object",
+                  "title": "The Data Schema",
+                  "required": [
+                    "id",
+                    "type"
+                  ],
+                  "properties": {
+                    "id": {
+                      "$id": "#/properties/data/properties/relationships/properties/project/properties/data/properties/id",
+                      "type": "string",
+                      "title": "The Id Schema",
+                      "default": "",
+                      "examples": [
+                        "106"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "type": {
+                      "$id": "#/properties/data/properties/relationships/properties/project/properties/data/properties/type",
+                      "type": "string",
+                      "title": "The Type Schema",
+                      "default": "",
+                      "examples": [
+                        "project"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              }
+            },
+            "comments": {
+              "$id": "#/properties/data/properties/relationships/properties/comments",
+              "type": "object",
+              "title": "The Comments Schema",
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "$id": "#/properties/data/properties/relationships/properties/comments/properties/data",
+                  "type": "array",
+                  "title": "The Data Schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

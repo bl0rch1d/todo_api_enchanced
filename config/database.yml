@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: todo_api_v2_development
+
+test:
+  <<: *default
+  database: todo_api_v2_test
+
+production:
+  <<: *default
+  database: todo_api_v2_production
+  username: <%= Rails.application.credentials.pg[:user] %>
+  password: <%= Rails.application.credentials.pg[:password] %>
