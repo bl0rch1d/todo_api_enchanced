@@ -17,7 +17,7 @@ RSpec.describe 'Sign in API', type: :request do
 
       it 'logins the user and set cookies' do
         expect(response.cookies[JWTSessions.access_cookie]).to be_present
-        expect(response).to match_json_schema('registrations/csrf_token')
+        expect(response).to match_json_schema('csrf_token')
       end
     end
 

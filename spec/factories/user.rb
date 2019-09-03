@@ -10,6 +10,10 @@ FactoryBot.define do
       projects { create_list(:project, 1) }
     end
 
+    trait :with_projects do
+      projects { create_list(:project, 5) }
+    end
+
     trait :with_project_with_task do
       projects { create_list(:project, 1, :with_task) }
     end

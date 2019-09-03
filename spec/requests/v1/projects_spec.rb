@@ -1,7 +1,7 @@
 RSpec.describe 'Projects API', type: :request do
   include Docs::V1::Projects::Api
 
-  let(:user) { create(:user, :with_project) }
+  let(:user) { create(:user, :with_projects) }
 
   let(:bearer) { { 'Authorization': "Bearer #{tokens[:access]}" } }
   let(:tokens) { JWTSessions::Session.new(payload: { user_id: user.id }, refresh_by_access_allowed: true).login }
@@ -22,7 +22,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns a list of projects' do
-      expect(response).to match_json_schema('projects/index')
+      expect(response).to match_response_schema('projects')
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'return a project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when project not found' do
@@ -62,7 +62,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns the project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when validation failed' do
@@ -73,7 +73,7 @@ RSpec.describe 'Projects API', type: :request do
       end
 
       it 'returns validation errors' do
-        expect(response).to match_json_schema('projects/unprocessable')
+        expect(response).to match_json_schema('unprocessable')
       end
     end
   end
@@ -91,7 +91,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns the project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when validation failed' do
@@ -102,7 +102,7 @@ RSpec.describe 'Projects API', type: :request do
       end
 
       it 'returns validation errors' do
-        expect(response).to match_json_schema('projects/unprocessable')
+        expect(response).to match_json_schema('unprocessable')
       end
     end
   end

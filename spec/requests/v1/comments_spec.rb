@@ -27,7 +27,7 @@ RSpec.describe 'Comments API', type: :request do
     end
 
     it 'returns a list of comments' do
-      expect(response).to match_json_schema('comments/index')
+      expect(response).to match_json_schema('comments')
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe 'Comments API', type: :request do
       end
 
       it 'returns the comment' do
-        expect(response).to match_json_schema('comments/create_destroy')
+        expect(response).to match_json_schema('comment')
       end
 
       context 'with image' do
@@ -64,7 +64,7 @@ RSpec.describe 'Comments API', type: :request do
           end
 
           it 'returns the comment' do
-            expect(response).to match_json_schema('comments/create_destroy')
+            expect(response).to match_json_schema('comment')
           end
         end
 
@@ -83,7 +83,7 @@ RSpec.describe 'Comments API', type: :request do
           end
 
           it 'returns the comment' do
-            expect(response).to match_json_schema('comments/file_error')
+            expect(response).to match_json_schema('unprocessable')
           end
         end
       end
@@ -97,7 +97,7 @@ RSpec.describe 'Comments API', type: :request do
         expect(response).to have_http_status(422)
       end
 
-      it { expect(response).to match_json_schema('comments/create_error') }
+      it { expect(response).to match_json_schema('unprocessable') }
     end
   end
 

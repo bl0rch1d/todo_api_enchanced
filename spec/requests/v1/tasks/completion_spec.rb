@@ -21,7 +21,7 @@ RSpec.describe 'Task completion API', type: :request do
     end
 
     it 'completes the task' do
-      expect(response).to match_json_schema('tasks/create_update_destroy')
+      expect(response).to match_json_schema('task')
     end
 
     context 'with invalid task_id' do

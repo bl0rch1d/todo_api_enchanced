@@ -29,7 +29,7 @@ RSpec.describe 'Tasks API', type: :request do
     end
 
     it 'returns a list of tasks' do
-      expect(response).to match_json_schema('tasks/index')
+      expect(response).to match_json_schema('tasks')
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Tasks API', type: :request do
       end
 
       it 'returns a task' do
-        expect(response).to match_json_schema('tasks/create_update_destroy')
+        expect(response).to match_json_schema('task')
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe 'Tasks API', type: :request do
       end
 
       it 'returns the task' do
-        expect(response).to match_json_schema('tasks/create_update_destroy')
+        expect(response).to match_json_schema('task')
       end
     end
 
@@ -85,7 +85,7 @@ RSpec.describe 'Tasks API', type: :request do
         expect(response).to have_http_status(422)
       end
 
-      it { expect(response).to match_json_schema('tasks/invalid_name') }
+      it { expect(response).to match_json_schema('unprocessable') }
     end
   end
 
@@ -104,7 +104,7 @@ RSpec.describe 'Tasks API', type: :request do
           expect(response).to have_http_status(200)
         end
 
-        it { expect(response).to match_json_schema('tasks/name_update') }
+        it { expect(response).to match_json_schema('task') }
       end
 
       context 'when deadline' do
@@ -114,7 +114,7 @@ RSpec.describe 'Tasks API', type: :request do
           expect(response).to have_http_status(200)
         end
 
-        it { expect(response).to match_json_schema('tasks/deadline_update') }
+        it { expect(response).to match_json_schema('task') }
       end
     end
 
@@ -126,7 +126,7 @@ RSpec.describe 'Tasks API', type: :request do
           expect(response).to have_http_status(422)
         end
 
-        it { expect(response).to match_json_schema('tasks/invalid_name') }
+        it { expect(response).to match_json_schema('task') }
       end
 
       context 'when deadline' do
@@ -136,7 +136,7 @@ RSpec.describe 'Tasks API', type: :request do
           expect(response).to have_http_status(422)
         end
 
-        it { expect(response).to match_json_schema('tasks/invalid_deadline') }
+        it { expect(response).to match_json_schema('unprocessable') }
       end
     end
 
