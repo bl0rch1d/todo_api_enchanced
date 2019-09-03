@@ -4,8 +4,8 @@ module Api::V1
       step :model
       step :prepare_renderer
 
-      def model(ctx, params:, **)
-        ctx['model'] = Task.joins(:project).where(projects: { user: params[:current_user] })
+      def model(ctx, **)
+        ctx['model'] = Task.joins(:project).where(projects: { user: ctx[:current_user] })
       end
 
       def prepare_renderer(ctx, **)

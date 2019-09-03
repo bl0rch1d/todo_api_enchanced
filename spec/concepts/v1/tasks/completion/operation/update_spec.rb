@@ -17,7 +17,10 @@ describe Api::V1::Tasks::Completion::Operation::Update do
     context 'when Task not found' do
       let(:params) { { task_id: nil } }
 
-      it { expect { result }.to raise_error(ActiveRecord::RecordNotFound) }
+      it do
+        expect(result).to be_failure
+        expect(result['model']).to be_nil
+      end
     end
 
     context 'when policy fails' do

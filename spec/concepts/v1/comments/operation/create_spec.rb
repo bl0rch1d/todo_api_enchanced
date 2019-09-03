@@ -16,7 +16,10 @@ describe Api::V1::Comments::Operation::Create do
     context 'when Comment not found' do
       let(:params) { { comment: attributes_for(:comment, task: task), task_id: nil } }
 
-      it { expect { result }.to raise_error(ActiveRecord::RecordNotFound) }
+      it do
+        expect(result).to be_failure
+        expect(result['model']).to be_nil
+      end
     end
 
     context 'when policy fails' do
@@ -33,7 +36,7 @@ describe Api::V1::Comments::Operation::Create do
       let(:params) { { comment: invalid_comment_params, task_id: task.id } }
 
       it do
-        expect(result['result.contract.default']).to be_failure
+        expect(result['contract.default'].errors).to be_any
         expect(result).to be_failure
       end
     end

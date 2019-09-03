@@ -1,7 +1,7 @@
 module Api::V1
   module Projects::Operation
     class Update < Trailblazer::Operation
-      step Model(Project, :find)
+      step Model(Project, :find_by)
       step Policy::Guard(Lib::Policy::UserGuard.new), fail_fast: true
       step Contract::Build(constant: Projects::Contract::Create)
       step Contract::Validate(key: :project), fail_fast: true

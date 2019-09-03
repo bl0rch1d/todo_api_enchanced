@@ -8,6 +8,8 @@ module DefaultEndpoint
       match.destroyed { head(:no_content) }
       match.forbidden { head(:forbidden) }
       match.unprocessable { |result| render_errors(result) }
+      match.not_found { head(:not_found) }
+      match.unauthenticated { head(:unauthorized) }
       match.no_content { head(:no_content) }
       match.success { |result| result['tokens'].nil? ? render_response(result) : render_tokens(result) }
     end

@@ -20,6 +20,16 @@ class ApplicationEndpoint
       resolve: ->(result) { result }
     ),
 
+    unauthenticated: Dry::Matcher::Case.new(
+      match: ->(result) { result.failure? && !result['authenticated'] },
+      resolve: ->(result) { result }
+    ),
+
+    not_found: Dry::Matcher::Case.new(
+      match: ->(result) { result.failure? && result['model'].nil? },
+      resolve: ->(result) { result }
+    ),
+
     no_content: Dry::Matcher::Case.new(
       match: ->(result) { result.success? && result['renderer_options'].nil? && result['tokens'].nil? },
       resolve: ->(result) { result }

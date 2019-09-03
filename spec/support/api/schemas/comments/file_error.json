@@ -13,15 +13,15 @@
       "type": "object",
       "title": "The Errors Schema",
       "required": [
-        "image"
+        "comments.image"
       ],
       "properties": {
-        "image": {
-          "$id": "#/properties/errors/properties/image",
+        "comments.image": {
+          "$id": "#/properties/errors/properties/comments.image",
           "type": "array",
-          "title": "The Image Schema",
+          "title": "The Comments.image Schema",
           "items": {
-            "$id": "#/properties/errors/properties/image/items",
+            "$id": "#/properties/errors/properties/comments.image/items",
             "type": "string",
             "title": "The Items Schema",
             "default": "",

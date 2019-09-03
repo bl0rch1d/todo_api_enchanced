@@ -3,7 +3,7 @@ class ImageValidator < ActiveModel::EachValidator
   ALLOWED_FORMATS = ['image/png', 'image/jpeg'].freeze
 
   def validate_each(record, attribute, value)
-    return unless value.attached?
+    return unless value.is_a?(ActionDispatch::Http::UploadedFile)
 
     check_type(record, attribute, value)
     check_size(record, attribute, value)
@@ -16,7 +16,7 @@ class ImageValidator < ActiveModel::EachValidator
   end
 
   def check_size(record, attribute, value)
-    add_error(record, attribute, message: :too_big) unless value.blob.byte_size < MAX_SIZE_VALUE
+    add_error(record, attribute, message: :too_big) unless value.size < MAX_SIZE_VALUE
   end
 
   def add_error(record, attribute, message:)

@@ -30,7 +30,6 @@ RSpec.describe 'Sign in API', type: :request do
 
       it 'returns a validations message' do
         expect(response.cookies[JWTSessions.access_cookie]).not_to be_present
-        expect(response).to match_json_schema('not_found')
       end
     end
 
@@ -43,7 +42,6 @@ RSpec.describe 'Sign in API', type: :request do
 
       it 'returns a validations message' do
         expect(response.cookies[JWTSessions.access_cookie]).not_to be_present
-        expect(response).to match_json_schema('unauthorized')
       end
     end
   end

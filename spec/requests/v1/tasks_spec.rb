@@ -7,7 +7,7 @@ RSpec.describe 'Tasks API', type: :request do
   let(:tokens) { JWTSessions::Session.new(payload: { user_id: user.id }, refresh_by_access_allowed: true).login }
 
   let(:valid_project_id) { user.projects.first }
-  let(:valid_task_id) { user.projects.first.tasks.sample }
+  let(:valid_task_id) { user.projects.first.tasks.first }
 
   let(:invalid_task_id) { 888 }
 
@@ -56,8 +56,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
@@ -91,10 +89,10 @@ RSpec.describe 'Tasks API', type: :request do
     end
   end
 
-  describe 'PUT /tasks/:id' do
+  describe 'PATCH /tasks/:id' do
     include Docs::V1::Tasks::Update
 
-    before { put api_v1_task_path(task_id), headers: bearer, params: params }
+    before { patch api_v1_task_path(task_id), headers: bearer, params: params }
 
     let(:task_id) { valid_task_id }
 
@@ -149,8 +147,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'when not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
@@ -173,8 +169,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'when not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 end

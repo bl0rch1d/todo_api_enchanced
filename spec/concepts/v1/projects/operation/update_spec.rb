@@ -16,7 +16,10 @@ describe Api::V1::Projects::Operation::Update do
     context 'when Project not found' do
       let(:params) { { project: attributes_for(:project, user: user), id: nil } }
 
-      it { expect { result }.to raise_error(ActiveRecord::RecordNotFound) }
+      it do
+        expect(result).to be_failure
+        expect(result['model']).to be_nil
+      end
     end
 
     context 'when policy fails' do

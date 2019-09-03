@@ -13,15 +13,15 @@
       "type": "object",
       "title": "The Errors Schema",
       "required": [
-        "body"
+        "comments.body"
       ],
       "properties": {
-        "body": {
-          "$id": "#/properties/errors/properties/body",
+        "comments.body": {
+          "$id": "#/properties/errors/properties/comments.body",
           "type": "array",
-          "title": "The Body Schema",
+          "title": "The Comments.body Schema",
           "items": {
-            "$id": "#/properties/errors/properties/body/items",
+            "$id": "#/properties/errors/properties/comments.body/items",
             "type": "string",
             "title": "The Items Schema",
             "default": "",

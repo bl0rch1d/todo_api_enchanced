@@ -5,7 +5,7 @@ module Api::V1
       step :prepare_renderer
 
       def model(ctx, **)
-        ctx['model'] = ctx['current_user'].projects
+        ctx['model'] = ctx[:current_user].projects
       end
 
       def prepare_renderer(ctx, **)

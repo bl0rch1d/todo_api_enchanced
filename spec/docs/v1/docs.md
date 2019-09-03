@@ -35,8 +35,8 @@
 ### Create a comment [POST /api/v1/tasks/{task_id}/comments]
 
 + Parameters
-    + task_id: `12` (integer, required)
-    + body: `sequiconsequaturillumsolutaminima` (string, required)
+    + task_id: `57` (integer, required)
+    + body: `etaliquidtemporeharumveniam` (string, required)
     + image: `ActionDispatch%3A%3AHttp%3A%3AUploadedFile` (image, optional)
 
 + Request success
@@ -49,7 +49,7 @@
 
     + Body
 
-            comment[body]=repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel
+            comment[body]=nequehicexpeditaaliasculpapariatursitetautofficiis
 
 + Response 201
 
@@ -61,18 +61,18 @@
 
             {
               "data": {
-                "id": "5",
+                "id": "4",
                 "type": "comment",
                 "attributes": {
-                  "body": "repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel",
+                  "body": "maximenequeidquamnon",
                   "image": {
                     "name": "image",
                     "record": {
-                      "id": 5,
-                      "body": "repudiandaeconsecteturetvoluptasesttemporequaeeosaliquamvel",
                       "task_id": 4,
-                      "created_at": "2019-09-01T19:38:17.427Z",
-                      "updated_at": "2019-09-01T19:38:17.427Z"
+                      "body": "maximenequeidquamnon",
+                      "id": 4,
+                      "created_at": "2019-09-03T11:43:11.622Z",
+                      "updated_at": "2019-09-03T11:43:11.624Z"
                     },
                     "dependent": "purge_later"
                   }
@@ -110,7 +110,7 @@
 
             {
               "errors": {
-                "body": [
+                "comments.body": [
                   "is too short (minimum is 10 characters)"
                 ]
               }
@@ -119,10 +119,10 @@
 ### Destroy the comment [DELETE /api/v1/comments/{id}]
 
 + Parameters
-    + id: `12` (integer, required)
+    + id: `57` (integer, required)
 
 + Request success
-**DELETE**&nbsp;&nbsp;`/api/v1/comments/8`
+**DELETE**&nbsp;&nbsp;`/api/v1/comments/7`
 
     + Headers
 
@@ -143,13 +143,7 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Comment with 'id'=999"
-            }
+            Content-Type: text/html
 
 # Group Projects
 
@@ -181,7 +175,7 @@
                   "id": "1",
                   "type": "project",
                   "attributes": {
-                    "name": "in"
+                    "name": "est"
                   },
                   "relationships": {
                     "user": {
@@ -225,7 +219,7 @@
                 "id": "2",
                 "type": "project",
                 "attributes": {
-                  "name": "dolore"
+                  "name": "qui"
                 },
                 "relationships": {
                   "user": {
@@ -254,18 +248,12 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Project with 'id'=999"
-            }
+            Content-Type: text/html
 
 ### Create a project [POST /api/v1/projects]
 
 + Parameters
-    + name: `delenitinobis` (string, required)
+    + name: `modialias` (string, required)
 
 + Request created
 **POST**&nbsp;&nbsp;`/api/v1/projects`
@@ -277,7 +265,7 @@
 
     + Body
 
-            project[name]=blanditiissunt
+            project[name]=explicaboquisquam
 
 + Response 201
 
@@ -292,7 +280,7 @@
                 "id": "5",
                 "type": "project",
                 "attributes": {
-                  "name": "blanditiissunt"
+                  "name": "explicaboquisquam"
                 },
                 "relationships": {
                   "user": {
@@ -341,8 +329,8 @@
 ### Update the project [PUT /api/v1/projects/{id}]
 
 + Parameters
-    + id: `71` (integer, required)
-    + name: `enimcommodi` (string, required)
+    + id: `61` (integer, required)
+    + name: `magnamaliquam` (string, required)
 
 + Request success
 **PUT**&nbsp;&nbsp;`/api/v1/projects/7`
@@ -354,7 +342,7 @@
 
     + Body
 
-            project[name]=consequaturet
+            project[name]=sedamet
 
 + Response 200
 
@@ -369,7 +357,7 @@
                 "id": "7",
                 "type": "project",
                 "attributes": {
-                  "name": "consequaturet"
+                  "name": "sedamet"
                 },
                 "relationships": {
                   "user": {
@@ -442,21 +430,15 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Project with 'id'=999"
-            }
+            Content-Type: text/html
 
 ###  [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `12` (number, required)
+    + id: `11` (number, required)
 
-+ Request forbidden
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/12`
++ Request success
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/11`
 
     + Headers
 
@@ -492,7 +474,7 @@
 
     + Body
 
-            user[username]=eaducimus&user[password]=VHZMJgUm7f&user[password_confirmation]=VHZMJgUm7f
+            user[username]=vitaeut&user[password]=1KdJ2p4e7By_AYlo&user[password_confirmation]=1KdJ2p4e7By_AYlo
 
 + Response 201
 
@@ -503,7 +485,7 @@
     + Body
 
             {
-              "csrf": "mYa8P4YUa4ddKWdIvHQq0zVEqgbEwV6Y4WyiSfVAc55YVgaVKxphcvRkaDfVGq0BuE0ITQ0MdvVtd9bzhqc5mA=="
+              "csrf": "O7GbYsrtXuQpxA2aa8w076S106DrXrfoB59x3FHNehXkK+X8fht2vwtkIFSqYRPq1vyQlmlCbiRPTCGkMkI/uA=="
             }
 
 + Request unprocessable
@@ -565,7 +547,7 @@
     + Body
 
             {
-              "csrf": "PLZXVw8exy9ehTUqSVmpztL5/DiD1V70F/v2yYv2GW0p4JIZND30N4ymOn10phwR6vhvziLrUeIeyGmV2ZA/kQ=="
+              "csrf": "/NndwNRNJTAErhNvOalxm+hjuE+3ygza0CKtOlipWnydMSztKFhSRq6y83hTLEPU6C3iWTSEjHlLSPF05+ZhNg=="
             }
 
 + Request unauthorized
@@ -585,7 +567,7 @@
     + Body
 
             {
-              "errors": "translation missing: en.jwt.unauthorized"
+              "errors": "Unathorized"
             }
 
 ### Create session [POST /api/v1/auth/sessions]
@@ -604,7 +586,7 @@
 
     + Body
 
-            username=iustodolores&password=VHZMJgUm7f
+            username=quisvoluptas&password=1KdJ2p4e7By_AYlo
 
 + Response 200
 
@@ -615,7 +597,7 @@
     + Body
 
             {
-              "csrf": "++ayLdxjVZnen9G5eZCXwZXAgyRDL6Iyg2IZdFX4dqcftt9eIwFVYSNMPpTra+jnAedloopPZ5bh+ZWW27EAIg=="
+              "csrf": "6ddlymS7lkyiTUXhIBr3CMAAB67IGPTJNIBTPJrv7343y3z4xJGMcpEVwltv5hSuc8M8gEnAMHDzZuW3wSaPug=="
             }
 
 + Request not_found
@@ -628,19 +610,13 @@
 
     + Body
 
-            username=iodantnc&password=VHZMJgUm7f
+            username=ctsimiaepiadptu&password=1KdJ2p4e7By_AYlo
 
 + Response 404
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find User"
-            }
+            Content-Type: text/html
 
 + Request unauthorized
 **POST**&nbsp;&nbsp;`/api/v1/auth/sessions`
@@ -652,19 +628,13 @@
 
     + Body
 
-            username=voluptatibusillo&password=
+            username=eligendiconsequatur&password=
 
 + Response 401
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "translation missing: en.jwt.unauthorized"
-            }
+            Content-Type: text/html
 
 ### Destroy session [DELETE /api/v1/auth/sessions]
 
@@ -696,7 +666,7 @@
     + Body
 
             {
-              "errors": "translation missing: en.jwt.unauthorized"
+              "errors": "Unathorized"
             }
 
 # Group Tasks
@@ -731,9 +701,9 @@
                 "id": "1",
                 "type": "task",
                 "attributes": {
-                  "name": "et",
+                  "name": "odit",
                   "deadline": null,
-                  "position": 1,
+                  "position": 2,
                   "completed": true
                 },
                 "relationships": {
@@ -764,19 +734,13 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Task with 'id'=888"
-            }
+            Content-Type: text/html
 
 ### Update postition of a task [PATCH /api/v1/tasks/{task_id}/prioritizations]
 
 + Parameters
-    + task_id: `17` (integer, required)
-    + position: `3` (integer, required)
+    + task_id: `29` (integer, required)
+    + position: `2` (integer, required)
 
 + Request success
 **PATCH**&nbsp;&nbsp;`/api/v1/tasks/1/prioritizations`
@@ -788,7 +752,7 @@
 
     + Body
 
-            task[position]=5
+            task[position]=3
 
 + Response 200
 
@@ -803,9 +767,9 @@
                 "id": "1",
                 "type": "task",
                 "attributes": {
-                  "name": "sed",
+                  "name": "maiores",
                   "deadline": null,
-                  "position": 5,
+                  "position": 3,
                   "completed": false
                 },
                 "relationships": {
@@ -834,19 +798,13 @@
 
     + Body
 
-            task[position]=5
+            task[position]=3
 
 + Response 404
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Task with 'id'=888"
-            }
+            Content-Type: text/html
 
 ### Get all tasks [GET /api/v1/projects/{project_id}/tasks]
 
@@ -870,7 +828,29 @@
 
             {
               "data": [
+                {
+                  "id": "1",
+                  "type": "task",
+                  "attributes": {
+                    "name": "reprehenderit",
+                    "deadline": null,
+                    "position": 1,
+                    "completed": false
+                  },
+                  "relationships": {
+                    "project": {
+                      "data": {
+                        "id": "2",
+                        "type": "project"
+                      }
+                    },
+                    "comments": {
+                      "data": [
             
+                      ]
+                    }
+                  }
+                }
               ]
             }
 
@@ -899,7 +879,7 @@
                 "id": "2",
                 "type": "task",
                 "attributes": {
-                  "name": "voluptatem",
+                  "name": "illo",
                   "deadline": null,
                   "position": 1,
                   "completed": false
@@ -931,19 +911,13 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Task with 'id'=888"
-            }
+            Content-Type: text/html
 
 ### Create a task [POST /api/v1/projects/{project_id}/tasks]
 
 + Parameters
-    + project_id: `17` (integer, required)
-    + name: `temporaveniam` (string, required)
+    + project_id: `29` (integer, required)
+    + name: `animiassumenda` (string, required)
 
 + Request success
 **POST**&nbsp;&nbsp;`/api/v1/projects/8/tasks`
@@ -955,7 +929,7 @@
 
     + Body
 
-            task[name]=voluptatemexcepturi
+            task[name]=undeest
 
 + Response 201
 
@@ -970,7 +944,7 @@
                 "id": "5",
                 "type": "task",
                 "attributes": {
-                  "name": "voluptatemexcepturi",
+                  "name": "undeest",
                   "deadline": null,
                   "position": 2,
                   "completed": false
@@ -1019,15 +993,15 @@
               }
             }
 
-### Update the task [PUT /api/v1/tasks/{id}]
+### Update the task [PATCH /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `17` (integer, required)
-    + name: `ideveniet` (string, required)
-    + deadline: `2019-09-08+19%3A38%3A16+UTC` (datetime, optional)
+    + id: `29` (integer, required)
+    + name: `consequaturet` (string, required)
+    + deadline: `2019-09-10+11%3A43%3A10+UTC` (datetime, optional)
 
 + Request success
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/7`
+**PATCH**&nbsp;&nbsp;`/api/v1/tasks/7`
 
     + Headers
 
@@ -1036,7 +1010,7 @@
 
     + Body
 
-            task[name]=modiprovident
+            task[name]=perferendisconsequatur
 
 + Response 200
 
@@ -1051,7 +1025,7 @@
                 "id": "7",
                 "type": "task",
                 "attributes": {
-                  "name": "modiprovident",
+                  "name": "perferendisconsequatur",
                   "deadline": null,
                   "position": 1,
                   "completed": false
@@ -1073,7 +1047,7 @@
             }
 
 + Request success
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/8`
+**PATCH**&nbsp;&nbsp;`/api/v1/tasks/8`
 
     + Headers
 
@@ -1082,7 +1056,7 @@
 
     + Body
 
-            task[deadline]=2019-09-08
+            task[deadline]=2019-09-10
 
 + Response 200
 
@@ -1097,9 +1071,9 @@
                 "id": "8",
                 "type": "task",
                 "attributes": {
-                  "name": "voluptates",
-                  "deadline": null,
-                  "position": 1,
+                  "name": "optio",
+                  "deadline": "2019-09-10",
+                  "position": 2,
                   "completed": false
                 },
                 "relationships": {
@@ -1119,7 +1093,7 @@
             }
 
 + Request unprocessable
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/9`
+**PATCH**&nbsp;&nbsp;`/api/v1/tasks/9`
 
     + Headers
 
@@ -1146,8 +1120,8 @@
               }
             }
 
-+ Request when not_found
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/888`
++ Request unprocessable
+**PATCH**&nbsp;&nbsp;`/api/v1/tasks/10`
 
     + Headers
 
@@ -1156,9 +1130,9 @@
 
     + Body
 
-            task[name]=autdolorem&task[deadline]=2019-09-08
+            task[deadline]=2019-08-27
 
-+ Response 404
++ Response 422
 
     + Headers
 
@@ -1167,16 +1141,38 @@
     + Body
 
             {
-              "errors": "Couldn't find Task with 'id'=888"
+              "errors": {
+                "deadline": [
+                  "Can't be in the past"
+                ]
+              }
             }
+
++ Request when not_found
+**PATCH**&nbsp;&nbsp;`/api/v1/tasks/888`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            task[name]=sequisint&task[deadline]=2019-09-10
+
++ Response 404
+
+    + Headers
+
+            Content-Type: text/html
 
 ### Destroy task [DELETE /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `11` (number, required)
+    + id: `12` (number, required)
 
 + Request when success
-**DELETE**&nbsp;&nbsp;`/api/v1/tasks/11`
+**DELETE**&nbsp;&nbsp;`/api/v1/tasks/12`
 
     + Headers
 
@@ -1197,10 +1193,4 @@
 
     + Headers
 
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": "Couldn't find Task with 'id'=888"
-            }
+            Content-Type: text/html

@@ -15,13 +15,19 @@ describe Api::V1::Sessions::Operation::Create do
     context 'when User not found' do
       let(:params) { { username: FFaker::Lorem.word, password: user.password } }
 
-      it { expect { result }.to raise_error(ActiveRecord::RecordNotFound) }
+      it do
+        expect(result).to be_failure
+        expect(result['model']).to be_nil
+      end
     end
 
     context 'when User not authenticated' do
       let(:params) { { username: user.username, password: FFaker::Lorem.word } }
 
-      it { expect { result }.to raise_error(JWTSessions::Errors::Unauthorized) }
+      it do
+        expect(result).to be_failure
+        expect(result['authenticated']).to be_falsey
+      end
     end
   end
 end

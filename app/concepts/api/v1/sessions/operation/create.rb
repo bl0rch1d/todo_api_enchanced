@@ -1,18 +1,16 @@
 module Api::V1
   module Sessions::Operation
     class Create < Trailblazer::Operation
-      step :model!
-      step :authenticate!
+      step :model, fail_fast: true
+      step :authenticate, fail_fast: true
       step :login
 
-      def model!(ctx, params:, **)
-        ctx['model'] = User.find_by!(username: params[:username])
+      def model(ctx, params:, **)
+        ctx['model'] = User.find_by(username: params[:username])
       end
 
-      def authenticate!(ctx, params:, **)
-        raise JWTSessions::Errors::Unauthorized unless ctx['model'].authenticate(params[:password])
-
-        true
+      def authenticate(ctx, params:, **)
+        ctx['authenticated'] = ctx['model'].authenticate(params[:password])
       end
 
       def login(ctx, **)

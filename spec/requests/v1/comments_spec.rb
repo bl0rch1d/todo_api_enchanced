@@ -118,8 +118,6 @@ RSpec.describe 'Comments API', type: :request do
       it 'not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 end
