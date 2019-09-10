@@ -47,8 +47,8 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.207.0)
-    aws-sdk-core (3.65.1)
+    aws-partitions (1.211.0)
+    aws-sdk-core (3.67.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -99,8 +99,8 @@ GEM
       rspec-core
     dry-core (0.4.9)
       concurrent-ruby (~> 1.0)
-    dry-matcher (0.8.1)
-      dry-core (>= 0.4.7)
+    dry-matcher (0.8.2)
+      dry-core (>= 0.4.8)
     erubi (1.8.0)
     erubis (2.7.0)
     factory_bot (5.0.2)
@@ -357,4 +357,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

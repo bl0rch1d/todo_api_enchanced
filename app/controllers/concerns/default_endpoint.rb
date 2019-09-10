@@ -1,7 +1,7 @@
 module DefaultEndpoint
   protected
 
-  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def default_handler
     lambda do |match|
       match.created { |result| result['renderer_options'] ? render_response(result, :created) : render_tokens(result) }
@@ -9,12 +9,13 @@ module DefaultEndpoint
       match.forbidden { head(:forbidden) }
       match.unprocessable { |result| render_errors(result) }
       match.not_found { head(:not_found) }
-      match.unauthenticated { head(:unauthorized) }
       match.no_content { head(:no_content) }
+      match.unauthenticated { head(:unauthorized) }
+      match.bad_request { head(:bad_request) }
       match.success { |result| result['tokens'].nil? ? render_response(result) : render_tokens(result) }
     end
   end
-  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def endpoint(operation_class, options = {}, &block)
     ApplicationEndpoint.call(operation_class, default_handler, **options, params: params.to_unsafe_hash, &block)

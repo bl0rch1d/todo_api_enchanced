@@ -76,12 +76,20 @@ RSpec.describe 'Projects API', type: :request do
         expect(response).to match_json_schema('unprocessable')
       end
     end
+
+    context 'when bad request' do
+      let(:params) { { name: valid_name } }
+
+      it 'bad_request', :dox do
+        expect(response).to have_http_status(400)
+      end
+    end
   end
 
-  describe 'PUT /projects/:id' do
+  describe 'PATCH /projects/:id' do
     include Docs::V1::Projects::Update
 
-    before { put api_v1_project_path(project_id), headers: bearer, params: params }
+    before { patch api_v1_project_path(project_id), headers: bearer, params: params }
 
     let(:project_id) { valid_project_id }
     let(:params) { { project: { name: valid_name } } }

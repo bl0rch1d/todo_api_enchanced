@@ -35,9 +35,7 @@
 ### Create a comment [POST /api/v1/tasks/{task_id}/comments]
 
 + Parameters
-    + task_id: `57` (integer, required)
-    + body: `etaliquidtemporeharumveniam` (string, required)
-    + image: `ActionDispatch%3A%3AHttp%3A%3AUploadedFile` (image, optional)
+    + task_id: `4` (number, required)
 
 + Request success
 **POST**&nbsp;&nbsp;`/api/v1/tasks/4/comments`
@@ -49,7 +47,7 @@
 
     + Body
 
-            comment[body]=nequehicexpeditaaliasculpapariatursitetautofficiis
+            comment[body]=quivoluptatemsapientedelectusveniamsaepeipsumvelsimiliqueaut
 
 + Response 201
 
@@ -64,15 +62,15 @@
                 "id": "4",
                 "type": "comment",
                 "attributes": {
-                  "body": "maximenequeidquamnon",
+                  "body": "ipsamadsedundeaut",
                   "image": {
                     "name": "image",
                     "record": {
                       "task_id": 4,
-                      "body": "maximenequeidquamnon",
+                      "body": "ipsamadsedundeaut",
                       "id": 4,
-                      "created_at": "2019-09-03T11:43:11.622Z",
-                      "updated_at": "2019-09-03T11:43:11.624Z"
+                      "created_at": "2019-09-10T10:02:18.682Z",
+                      "updated_at": "2019-09-10T10:02:18.684Z"
                     },
                     "dependent": "purge_later"
                   }
@@ -119,7 +117,7 @@
 ### Destroy the comment [DELETE /api/v1/comments/{id}]
 
 + Parameters
-    + id: `57` (integer, required)
+    + id: `7` (number, required)
 
 + Request success
 **DELETE**&nbsp;&nbsp;`/api/v1/comments/7`
@@ -175,12 +173,92 @@
                   "id": "1",
                   "type": "project",
                   "attributes": {
-                    "name": "est"
+                    "name": "culpa"
                   },
                   "relationships": {
                     "user": {
                       "data": {
-                        "id": "2",
+                        "id": "6",
+                        "type": "user"
+                      }
+                    },
+                    "tasks": {
+                      "data": [
+            
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "project",
+                  "attributes": {
+                    "name": "facere"
+                  },
+                  "relationships": {
+                    "user": {
+                      "data": {
+                        "id": "6",
+                        "type": "user"
+                      }
+                    },
+                    "tasks": {
+                      "data": [
+            
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "3",
+                  "type": "project",
+                  "attributes": {
+                    "name": "nemo"
+                  },
+                  "relationships": {
+                    "user": {
+                      "data": {
+                        "id": "6",
+                        "type": "user"
+                      }
+                    },
+                    "tasks": {
+                      "data": [
+            
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "4",
+                  "type": "project",
+                  "attributes": {
+                    "name": "consequatur"
+                  },
+                  "relationships": {
+                    "user": {
+                      "data": {
+                        "id": "6",
+                        "type": "user"
+                      }
+                    },
+                    "tasks": {
+                      "data": [
+            
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "5",
+                  "type": "project",
+                  "attributes": {
+                    "name": "molestiae"
+                  },
+                  "relationships": {
+                    "user": {
+                      "data": {
+                        "id": "6",
                         "type": "user"
                       }
                     },
@@ -197,10 +275,10 @@
 ### Show project [GET /api/v1/projects/{id}]
 
 + Parameters
-    + id: `2` (number, required)
+    + id: `6` (number, required)
 
 + Request success
-**GET**&nbsp;&nbsp;`/api/v1/projects/2`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6`
 
     + Headers
 
@@ -216,15 +294,15 @@
 
             {
               "data": {
-                "id": "2",
+                "id": "6",
                 "type": "project",
                 "attributes": {
-                  "name": "qui"
+                  "name": "esse"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "4",
+                      "id": "12",
                       "type": "user"
                     }
                   },
@@ -252,8 +330,6 @@
 
 ### Create a project [POST /api/v1/projects]
 
-+ Parameters
-    + name: `modialias` (string, required)
 
 + Request created
 **POST**&nbsp;&nbsp;`/api/v1/projects`
@@ -265,7 +341,7 @@
 
     + Body
 
-            project[name]=explicaboquisquam
+            project[name]=laudantiumfugiat
 
 + Response 201
 
@@ -277,15 +353,15 @@
 
             {
               "data": {
-                "id": "5",
+                "id": "21",
                 "type": "project",
                 "attributes": {
-                  "name": "explicaboquisquam"
+                  "name": "laudantiumfugiat"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "8",
+                      "id": "24",
                       "type": "user"
                     }
                   },
@@ -326,14 +402,8 @@
               }
             }
 
-### Update the project [PUT /api/v1/projects/{id}]
-
-+ Parameters
-    + id: `61` (integer, required)
-    + name: `magnamaliquam` (string, required)
-
-+ Request success
-**PUT**&nbsp;&nbsp;`/api/v1/projects/7`
++ Request bad_request
+**POST**&nbsp;&nbsp;`/api/v1/projects`
 
     + Headers
 
@@ -342,7 +412,30 @@
 
     + Body
 
-            project[name]=sedamet
+            name=consequaturfugiat
+
++ Response 400
+
+    + Headers
+
+            Content-Type: text/html
+
+### Update the project [PATCH /api/v1/projects/{id}]
+
++ Parameters
+    + id: `32` (number, required)
+
++ Request success
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/32`
+
+    + Headers
+
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            project[name]=adipiscicorrupti
 
 + Response 200
 
@@ -354,15 +447,15 @@
 
             {
               "data": {
-                "id": "7",
+                "id": "32",
                 "type": "project",
                 "attributes": {
-                  "name": "sedamet"
+                  "name": "adipiscicorrupti"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "12",
+                      "id": "42",
                       "type": "user"
                     }
                   },
@@ -376,7 +469,7 @@
             }
 
 + Request unprocessable
-**PUT**&nbsp;&nbsp;`/api/v1/projects/8`
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/37`
 
     + Headers
 
@@ -406,10 +499,10 @@
 ### Destroy project [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `9` (number, required)
+    + id: `42` (number, required)
 
 + Request success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/9`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/42`
 
     + Headers
 
@@ -435,10 +528,10 @@
 ###  [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `11` (number, required)
+    + id: `52` (number, required)
 
 + Request success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/11`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/52`
 
     + Headers
 
@@ -459,10 +552,6 @@
 
 ### Create user [POST /api/v1/auth/registrations]
 
-+ Parameters
-    + username: `hooin_k%D1%91ma` (string, required)
-    + password: `elpsykongru` (string, required)
-    + password_confirmation: `elpsykongru` (string, required)
 
 + Request created
 **POST**&nbsp;&nbsp;`/api/v1/auth/registrations`
@@ -474,7 +563,7 @@
 
     + Body
 
-            user[username]=vitaeut&user[password]=1KdJ2p4e7By_AYlo&user[password_confirmation]=1KdJ2p4e7By_AYlo
+            user[username]=loyd_sipes&user[password]=RfUYZ8u7lZgH&user[password_confirmation]=RfUYZ8u7lZgH
 
 + Response 201
 
@@ -485,7 +574,7 @@
     + Body
 
             {
-              "csrf": "O7GbYsrtXuQpxA2aa8w076S106DrXrfoB59x3FHNehXkK+X8fht2vwtkIFSqYRPq1vyQlmlCbiRPTCGkMkI/uA=="
+              "csrf": "pDNuj+cm00KTWmwnjrDj7MA+3sDJNFylH6XgVOeiET9EppDMixsfSVfZYMZiBOHuBODEsFTMM2oaFcPZmsjQVA=="
             }
 
 + Request unprocessable
@@ -547,7 +636,7 @@
     + Body
 
             {
-              "csrf": "/NndwNRNJTAErhNvOalxm+hjuE+3ygza0CKtOlipWnydMSztKFhSRq6y83hTLEPU6C3iWTSEjHlLSPF05+ZhNg=="
+              "csrf": "iLzNxQEa95h5fSayBrfBjaOiqwTIquDl0Qc40RULzmQ6Zinml0yjh4s0MHQsY6vUOHONrBxGY1Ir/loWky6gXg=="
             }
 
 + Request unauthorized
@@ -572,9 +661,6 @@
 
 ### Create session [POST /api/v1/auth/sessions]
 
-+ Parameters
-    + username: `hooin_k%D1%91ma` (string, required)
-    + password: `elpsykongru` (string, required)
 
 + Request success
 **POST**&nbsp;&nbsp;`/api/v1/auth/sessions`
@@ -586,7 +672,7 @@
 
     + Body
 
-            username=quisvoluptas&password=1KdJ2p4e7By_AYlo
+            username=bree&password=RfUYZ8u7lZgH
 
 + Response 200
 
@@ -597,7 +683,7 @@
     + Body
 
             {
-              "csrf": "6ddlymS7lkyiTUXhIBr3CMAAB67IGPTJNIBTPJrv7343y3z4xJGMcpEVwltv5hSuc8M8gEnAMHDzZuW3wSaPug=="
+              "csrf": "yc11KJHhLm/90BDVu3Hsd39CxOVt5dGDmnh7PyarfXLweHopvgRUuxTom74lq8gc0XNbtbCLxvFqnuZ26H03DQ=="
             }
 
 + Request not_found
@@ -610,7 +696,7 @@
 
     + Body
 
-            username=ctsimiaepiadptu&password=1KdJ2p4e7By_AYlo
+            username=qynue&password=RfUYZ8u7lZgH
 
 + Response 404
 
@@ -628,7 +714,7 @@
 
     + Body
 
-            username=eligendiconsequatur&password=
+            username=ervin_marks&password=
 
 + Response 401
 
@@ -701,7 +787,7 @@
                 "id": "1",
                 "type": "task",
                 "attributes": {
-                  "name": "odit",
+                  "name": "accusamus",
                   "deadline": null,
                   "position": 2,
                   "completed": true
@@ -739,8 +825,7 @@
 ### Update postition of a task [PATCH /api/v1/tasks/{task_id}/prioritizations]
 
 + Parameters
-    + task_id: `29` (integer, required)
-    + position: `2` (integer, required)
+    + task_id: `1` (number, required)
 
 + Request success
 **PATCH**&nbsp;&nbsp;`/api/v1/tasks/1/prioritizations`
@@ -752,7 +837,7 @@
 
     + Body
 
-            task[position]=3
+            task[position]=5
 
 + Response 200
 
@@ -767,9 +852,9 @@
                 "id": "1",
                 "type": "task",
                 "attributes": {
-                  "name": "maiores",
+                  "name": "ipsa",
                   "deadline": null,
-                  "position": 3,
+                  "position": 5,
                   "completed": false
                 },
                 "relationships": {
@@ -798,7 +883,7 @@
 
     + Body
 
-            task[position]=3
+            task[position]=1
 
 + Response 404
 
@@ -832,7 +917,7 @@
                   "id": "1",
                   "type": "task",
                   "attributes": {
-                    "name": "reprehenderit",
+                    "name": "non",
                     "deadline": null,
                     "position": 1,
                     "completed": false
@@ -879,9 +964,9 @@
                 "id": "2",
                 "type": "task",
                 "attributes": {
-                  "name": "illo",
+                  "name": "minima",
                   "deadline": null,
-                  "position": 1,
+                  "position": 2,
                   "completed": false
                 },
                 "relationships": {
@@ -916,8 +1001,7 @@
 ### Create a task [POST /api/v1/projects/{project_id}/tasks]
 
 + Parameters
-    + project_id: `29` (integer, required)
-    + name: `animiassumenda` (string, required)
+    + project_id: `8` (number, required)
 
 + Request success
 **POST**&nbsp;&nbsp;`/api/v1/projects/8/tasks`
@@ -929,7 +1013,7 @@
 
     + Body
 
-            task[name]=undeest
+            task[name]=officiisat
 
 + Response 201
 
@@ -944,7 +1028,7 @@
                 "id": "5",
                 "type": "task",
                 "attributes": {
-                  "name": "undeest",
+                  "name": "officiisat",
                   "deadline": null,
                   "position": 2,
                   "completed": false
@@ -996,9 +1080,7 @@
 ### Update the task [PATCH /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `29` (integer, required)
-    + name: `consequaturet` (string, required)
-    + deadline: `2019-09-10+11%3A43%3A10+UTC` (datetime, optional)
+    + id: `7` (number, required)
 
 + Request success
 **PATCH**&nbsp;&nbsp;`/api/v1/tasks/7`
@@ -1010,7 +1092,7 @@
 
     + Body
 
-            task[name]=perferendisconsequatur
+            task[name]=utalias
 
 + Response 200
 
@@ -1025,7 +1107,7 @@
                 "id": "7",
                 "type": "task",
                 "attributes": {
-                  "name": "perferendisconsequatur",
+                  "name": "utalias",
                   "deadline": null,
                   "position": 1,
                   "completed": false
@@ -1056,7 +1138,7 @@
 
     + Body
 
-            task[deadline]=2019-09-10
+            task[deadline]=2019-09-17
 
 + Response 200
 
@@ -1071,9 +1153,9 @@
                 "id": "8",
                 "type": "task",
                 "attributes": {
-                  "name": "optio",
-                  "deadline": "2019-09-10",
-                  "position": 2,
+                  "name": "nulla",
+                  "deadline": "2019-09-17",
+                  "position": 1,
                   "completed": false
                 },
                 "relationships": {
@@ -1130,7 +1212,7 @@
 
     + Body
 
-            task[deadline]=2019-08-27
+            task[deadline]=2019-09-03
 
 + Response 422
 
@@ -1158,7 +1240,7 @@
 
     + Body
 
-            task[name]=sequisint&task[deadline]=2019-09-10
+            task[name]=delectuset&task[deadline]=2019-09-17
 
 + Response 404
 

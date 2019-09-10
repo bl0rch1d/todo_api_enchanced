@@ -2,7 +2,7 @@ module Api::V1
   module Lib::Service::JwtSessionsService
     class Login
       def self.call(user_id)
-        JWTSessions::Session.new(payload: { user_id: user_id }, refresh_by_access_allowed: true).login
+        JWTSessions::Session.new(payload: user_id, refresh_by_access_allowed: true).login
       end
     end
 

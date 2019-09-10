@@ -16,17 +16,22 @@ class ApplicationEndpoint
     ),
 
     unprocessable: Dry::Matcher::Case.new(
-      match: ->(result) { result.failure? && result['contract.default']&.errors },
+      match: ->(result) { result.failure? && result['contract.default']&.errors&.any? },
       resolve: ->(result) { result }
     ),
 
     unauthenticated: Dry::Matcher::Case.new(
-      match: ->(result) { result.failure? && !result['authenticated'] },
+      match: ->(result) { result.failure? && !result['authenticated'] && result['model'].is_a?(User) },
       resolve: ->(result) { result }
     ),
 
     not_found: Dry::Matcher::Case.new(
       match: ->(result) { result.failure? && result['model'].nil? },
+      resolve: ->(result) { result }
+    ),
+
+    bad_request: Dry::Matcher::Case.new(
+      match: ->(result) { result.failure? && result['model'].present? && result['result.contract.default'].nil? },
       resolve: ->(result) { result }
     ),
 

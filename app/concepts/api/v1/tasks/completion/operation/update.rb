@@ -11,7 +11,7 @@ module Api::V1
       end
 
       def swap_completed(ctx, **)
-        ctx['model'].update!(completed: !ctx['model'].completed)
+        ctx['model'].update(completed: !ctx['model'].completed)
       end
 
       def prepare_renderer(ctx, **)

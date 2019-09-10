@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
     password = FFaker::Internet.password
 
-    username { FFaker::Lorem.words(2).join }
+    username { FFaker::Internet.user_name }
     password { password }
     password_confirmation { password }
 
