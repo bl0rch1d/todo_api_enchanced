@@ -1,0 +1,27 @@
+{
+  "id": "file:/project.json#",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "relationships": {
+      "properties": {
+        "user": {
+          "properties": {
+            "id": { "type": "integer" }
+          }
+        },
+        "tasks": {
+          "type": "array",
+          "items": { "$ref": "file:/tasks.json#" }
+        }
+      },
+      "required": ["user", "tasks"]
+    }
+  }
+}

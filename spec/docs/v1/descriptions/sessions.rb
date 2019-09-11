@@ -3,9 +3,6 @@ module Docs
     module Sessions
       extend Dox::DSL::Syntax
 
-      USERNAME_EXAMPLE = 'hooin_kёma'.freeze
-      PASSWORD_EXAMPLE = 'elpsykongru'.freeze
-
       document :api do
         resource 'Sessions' do
           endpoint '/sessions'
@@ -14,10 +11,7 @@ module Docs
       end
 
       document :create do
-        action 'Create session' do
-          params username: { type: :string, required: :required, value: USERNAME_EXAMPLE },
-                 password: { type: :string, required: :required, value: PASSWORD_EXAMPLE }
-        end
+        action 'Create session'
       end
 
       document :update do

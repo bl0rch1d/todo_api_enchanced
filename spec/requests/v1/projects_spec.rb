@@ -1,7 +1,7 @@
 RSpec.describe 'Projects API', type: :request do
   include Docs::V1::Projects::Api
 
-  let(:user) { create(:user, :with_project) }
+  let(:user) { create(:user, :with_projects) }
 
   let(:bearer) { { 'Authorization': "Bearer #{tokens[:access]}" } }
   let(:tokens) { JWTSessions::Session.new(payload: { user_id: user.id }, refresh_by_access_allowed: true).login }
@@ -22,7 +22,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns a list of projects' do
-      expect(response).to match_json_schema('projects/index')
+      expect(response).to match_response_schema('projects')
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'return a project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when project not found' do
@@ -47,8 +47,6 @@ RSpec.describe 'Projects API', type: :request do
       it 'not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
@@ -64,7 +62,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns the project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when validation failed' do
@@ -75,15 +73,23 @@ RSpec.describe 'Projects API', type: :request do
       end
 
       it 'returns validation errors' do
-        expect(response).to match_json_schema('projects/unprocessable')
+        expect(response).to match_json_schema('unprocessable')
+      end
+    end
+
+    context 'when bad request' do
+      let(:params) { { name: valid_name } }
+
+      it 'bad_request', :dox do
+        expect(response).to have_http_status(400)
       end
     end
   end
 
-  describe 'PUT /projects/:id' do
+  describe 'PATCH /projects/:id' do
     include Docs::V1::Projects::Update
 
-    before { put api_v1_project_path(project_id), headers: bearer, params: params }
+    before { patch api_v1_project_path(project_id), headers: bearer, params: params }
 
     let(:project_id) { valid_project_id }
     let(:params) { { project: { name: valid_name } } }
@@ -93,7 +99,7 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     it 'returns the project' do
-      expect(response).to match_json_schema('projects/show_create_update')
+      expect(response).to match_json_schema('project')
     end
 
     context 'when validation failed' do
@@ -104,7 +110,7 @@ RSpec.describe 'Projects API', type: :request do
       end
 
       it 'returns validation errors' do
-        expect(response).to match_json_schema('projects/unprocessable')
+        expect(response).to match_json_schema('unprocessable')
       end
     end
   end
@@ -126,20 +132,16 @@ RSpec.describe 'Projects API', type: :request do
       it 'not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
-  describe 'Pundit::NotAuthorizedError' do
+  describe 'Forbidden' do
     before { delete api_v1_project_path(project), headers: bearer }
 
-    let(:project) { create(:user, projects: create_list(:project, 2)).projects.sample }
+    let(:project) { create(:project).id }
 
-    it 'forbidden', :dox do
+    it 'success', :dox do
       expect(response).to have_http_status(403)
     end
-
-    it { expect(response).to match_json_schema('forbidden') }
   end
 end

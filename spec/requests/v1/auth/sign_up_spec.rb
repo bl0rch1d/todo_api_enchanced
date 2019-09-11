@@ -17,7 +17,7 @@ RSpec.describe 'Sign up API', type: :request do
 
       it 'creates the user and session' do
         expect(response.cookies[JWTSessions.access_cookie]).to be_present
-        expect(response).to match_json_schema('registrations/csrf_token')
+        expect(response).to match_json_schema('csrf_token')
       end
     end
 
@@ -30,7 +30,7 @@ RSpec.describe 'Sign up API', type: :request do
 
       it 'does not create a session' do
         expect(response.cookies[JWTSessions.access_cookie]).not_to be_present
-        expect(response).to match_json_schema('registrations/validation_errors')
+        expect(response).to match_json_schema('unprocessable')
       end
     end
   end

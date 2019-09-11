@@ -7,7 +7,7 @@ RSpec.describe 'Tasks API', type: :request do
   let(:tokens) { JWTSessions::Session.new(payload: { user_id: user.id }, refresh_by_access_allowed: true).login }
 
   let(:valid_project_id) { user.projects.first }
-  let(:valid_task_id) { user.projects.first.tasks.sample }
+  let(:valid_task_id) { user.projects.first.tasks.first }
 
   let(:invalid_task_id) { 888 }
 
@@ -29,7 +29,7 @@ RSpec.describe 'Tasks API', type: :request do
     end
 
     it 'returns a list of tasks' do
-      expect(response).to match_json_schema('tasks/index')
+      expect(response).to match_json_schema('tasks')
     end
   end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Tasks API', type: :request do
       end
 
       it 'returns a task' do
-        expect(response).to match_json_schema('tasks/create_update_destroy')
+        expect(response).to match_json_schema('task')
       end
     end
 
@@ -56,8 +56,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
@@ -75,7 +73,7 @@ RSpec.describe 'Tasks API', type: :request do
       end
 
       it 'returns the task' do
-        expect(response).to match_json_schema('tasks/create_update_destroy')
+        expect(response).to match_json_schema('task')
       end
     end
 
@@ -87,35 +85,59 @@ RSpec.describe 'Tasks API', type: :request do
         expect(response).to have_http_status(422)
       end
 
-      it { expect(response).to match_json_schema('tasks/invalid_name') }
+      it { expect(response).to match_json_schema('unprocessable') }
     end
   end
 
-  describe 'PUT /tasks/:id' do
+  describe 'PATCH /tasks/:id' do
     include Docs::V1::Tasks::Update
 
-    before { put api_v1_task_path(task_id), headers: bearer, params: params }
+    before { patch api_v1_task_path(task_id), headers: bearer, params: params }
 
     let(:task_id) { valid_task_id }
 
     context 'with valid params' do
-      let(:params) { { task: { name: valid_task_name, deadline: valid_deadline } } }
+      context 'when name' do
+        let(:params) { { task: { name: valid_task_name } } }
 
-      it 'success', :dox do
-        expect(response).to have_http_status(200)
+        it 'success', :dox do
+          expect(response).to have_http_status(200)
+        end
+
+        it { expect(response).to match_json_schema('task') }
       end
 
-      it { expect(response).to match_json_schema('tasks/update') }
+      context 'when deadline' do
+        let(:params) { { task: { deadline: valid_deadline } } }
+
+        it 'success', :dox do
+          expect(response).to have_http_status(200)
+        end
+
+        it { expect(response).to match_json_schema('task') }
+      end
     end
 
     context 'with invalid params' do
-      let(:params) { { task: { name: invalid_task_name, deadline: invalid_deadline } } }
+      context 'when name' do
+        let(:params) { { task: { name: invalid_task_name } } }
 
-      it 'unprocessable', :dox do
-        expect(response).to have_http_status(422)
+        it 'unprocessable', :dox do
+          expect(response).to have_http_status(422)
+        end
+
+        it { expect(response).to match_json_schema('task') }
       end
 
-      it { expect(response).to match_json_schema('tasks/update_error') }
+      context 'when deadline' do
+        let(:params) { { task: { deadline: invalid_deadline } } }
+
+        it 'unprocessable', :dox do
+          expect(response).to have_http_status(422)
+        end
+
+        it { expect(response).to match_json_schema('unprocessable') }
+      end
     end
 
     context 'when invalid task_id' do
@@ -125,8 +147,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'when not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 
@@ -149,8 +169,6 @@ RSpec.describe 'Tasks API', type: :request do
       it 'when not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 end

@@ -22,7 +22,7 @@ RSpec.describe 'Refresh token API', type: :request do
 
       it 'refreshes session' do
         expect(response.cookies[JWTSessions.access_cookie]).to be_present
-        expect(response).to match_json_schema('registrations/csrf_token')
+        expect(response).to match_json_schema('csrf_token')
       end
     end
 

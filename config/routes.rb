@@ -9,9 +9,9 @@ Rails.application.routes.draw do
       resources :projects do
         resources :tasks, shallow: true do
 
-          scope module: :tasks do
-            resources :comments
+          resources :comments
 
+          scope module: :tasks do
             resource :completions, only: :update
             resource :prioritizations, only: :update
           end

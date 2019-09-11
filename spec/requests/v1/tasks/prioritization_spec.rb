@@ -24,7 +24,7 @@ RSpec.describe 'Task prioritization API', type: :request do
     end
 
     it 'updates position of a task' do
-      expect(response).to match_json_schema('tasks/create_update_destroy')
+      expect(response).to match_json_schema('task')
     end
 
     context 'with invalid task_id' do
@@ -33,8 +33,6 @@ RSpec.describe 'Task prioritization API', type: :request do
       it 'when not_found', :dox do
         expect(response).to have_http_status(404)
       end
-
-      it { expect(response).to match_json_schema('not_found') }
     end
   end
 end

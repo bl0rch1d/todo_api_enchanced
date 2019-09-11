@@ -1,0 +1,24 @@
+{
+  "id": "file:/comment.json#",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "properties": {
+        "id": { "type": "integer" },
+        "body": { "type": "string" },
+        "image": { "type": "string" }
+      },
+      "required": ["id", "body", "image"]
+    },
+    "relationships": {
+      "properties": {
+        "task": {
+          "properties": {
+            "id": { "type": "integer" }
+          }
+        }
+      },
+      "required": ["task"]
+    }
+  }
+}

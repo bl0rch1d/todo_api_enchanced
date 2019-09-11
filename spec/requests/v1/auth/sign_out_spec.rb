@@ -14,8 +14,8 @@ RSpec.describe 'Sign out API', type: :request do
 
     before { delete api_v1_auth_sessions_path, headers: bearer }
 
-    it 'success', :dox do
-      expect(response).to have_http_status(200)
+    it 'no_content', :dox do
+      expect(response).to have_http_status(204)
     end
 
     context 'when not authorized' do

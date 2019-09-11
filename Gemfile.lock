@@ -47,8 +47,8 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.207.0)
-    aws-sdk-core (3.65.1)
+    aws-partitions (1.211.0)
+    aws-sdk-core (3.67.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -99,8 +99,8 @@ GEM
       rspec-core
     dry-core (0.4.9)
       concurrent-ruby (~> 1.0)
-    dry-matcher (0.8.1)
-      dry-core (>= 0.4.7)
+    dry-matcher (0.8.2)
+      dry-core (>= 0.4.8)
     erubi (1.8.0)
     erubis (2.7.0)
     factory_bot (5.0.2)
@@ -164,8 +164,6 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     puma (3.12.1)
-    pundit (2.1.0)
-      activesupport (>= 3.0.0)
     rack (2.0.7)
     rack-cors (1.0.3)
     rack-test (1.1.0)
@@ -211,6 +209,9 @@ GEM
     reform (2.2.4)
       disposable (>= 0.4.1)
       representable (>= 2.4.0, < 3.1.0)
+    reform-rails (0.1.7)
+      activemodel (>= 3.2)
+      reform (>= 2.2.0)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -332,11 +333,12 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry-byebug (~> 3.7)
   puma (~> 3.11)
-  pundit (~> 2.1)
   rack-cors (~> 1.0, >= 1.0.3)
   rails (~> 5.2.3)
   rails_best_practices (~> 1.19)
   redis (~> 4.1)
+  reform (~> 2.2)
+  reform-rails (~> 0.1.7)
   rspec (~> 3.8)
   rspec-rails (~> 3.8)
   rubocop (~> 0.74.0)
@@ -355,4 +357,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

@@ -1,0 +1,8 @@
+{
+  "id": "file:/tasks.json#",
+  "data": {
+    "type": "array",
+    "items": { "$ref": "file:/task.json#" }
+  },
+  "required": ["data"]
+}

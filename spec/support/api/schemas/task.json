@@ -1,0 +1,30 @@
+{
+  "id": "file:/task.json#",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "position": { "type": "integer" },
+        "deadline": { "type": "string" },
+        "completed": { "type": "boolean" }
+      },
+      "required": ["id", "name", "position", "deadline", "completed"]
+    },
+    "relationships": {
+      "properties": {
+        "project": {
+          "properties": {
+            "id": { "type": "integer" }
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": { "$ref": "file:/comments.json#" }
+        }
+      },
+      "required": ["project", "comments"]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "errors": {
+    "type": "array",
+    "items": {}
+  },
+  "required": ["errors"]
+}
