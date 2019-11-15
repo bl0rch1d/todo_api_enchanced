@@ -17,7 +17,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt_sessions', '~> 2.4', '>= 2.4.2'
 
 # CORS
-gem 'rack-cors', '~> 1.0', '>= 1.0.3'
+gem 'rack-cors', '~> 1.0'
 
 # Fake data
 gem 'ffaker', '~> 2.11'
